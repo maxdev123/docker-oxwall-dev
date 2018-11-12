@@ -24,24 +24,11 @@ git clone https://github.com/indiehosters/oxwall.git
 cd oxwall
 # edit variables:
 vi .env
+sh generate_cert.sh
 docker-compose up
 ```
 
-You can now access your instance on the port 80 of the IP of the container.
-
-## Accees it from Internet
-
-We recommend the usage of SSL, so the easiest is to modify the `nginx.conf` file.
-
-Once it is done, you can connect to the port of the host by adding this line to `docker-compose.yml`:
-```
-web:
-...
-  - ports:
-    - "443:443"
-    - "80:80"
-...
-```
+You can now access your instance on https://localhost
 
 ## Installation
 
@@ -49,7 +36,7 @@ Once started, you'll arrive at the configuration wizzard.
 At the `Database Setup` step, please enter the following:
   -  Database Server: `db`
   -  Login: `root`
-  -  Password: MYSQL_ROOT_PASSWORD (from your `.env` file)
+  -  Password: MYSQL_ROOT_PASSWORD (from your `.env` file, example is default password)
   -  Database Name: oxwall (or you can choose)
 
 And leave the rest as default.
